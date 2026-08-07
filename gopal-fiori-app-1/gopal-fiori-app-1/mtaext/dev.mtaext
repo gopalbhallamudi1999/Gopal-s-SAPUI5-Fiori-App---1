@@ -1,0 +1,37 @@
+_schema-version: "3.2"
+ID: comgopaldemofioriapp1-dev
+
+extends: comgopaldemofioriapp1
+
+resources:
+
+  - name: comgopaldemofioriapp1-destination-service
+    parameters:
+      service-name: comgopaldemofioriapp1-destination-service-dev
+
+  - name: comgopaldemofioriapp1-uaa
+    parameters:
+      service-name: comgopaldemofioriapp1-xsuaa-service-dev
+      config:
+        xsappname: comgopaldemofioriapp1-dev
+
+  - name: comgopaldemofioriapp1-repo-host
+    parameters:
+      service-name: comgopaldemofioriapp1-html5-service-dev
+
+modules:
+  - name: comgopaldemofioriapp1-destination-content
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: comgopaldemofioriapp1_html_repo_host
+              ServiceInstanceName: comgopaldemofioriapp1-html5-service-dev
+              ServiceKeyName: comgopaldemofioriapp1-repo-host-key
+              sap.cloud.service: comgopaldemofioriapp1
+
+            - Authentication: OAuth2UserTokenExchange
+              Name: comgopaldemofioriapp1_uaa
+              ServiceInstanceName: comgopaldemofioriapp1-xsuaa-service-dev
+              ServiceKeyName: comgopaldemofioriapp1-uaa-key
+              sap.cloud.service: comgopaldemofioriapp1

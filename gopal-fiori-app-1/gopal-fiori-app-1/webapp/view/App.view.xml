@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="com.gopal.demo.fioriapp1.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="gopalApp1"
+         backgroundImage="images/startpage.jpg"
+         backgroundOpacity="0.3"/>
+</mvc:View>
